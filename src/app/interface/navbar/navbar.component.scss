@@ -1,11 +1,19 @@
 @import '~sass/variables';
 
-.nav {
+.nav-wrapper{
 
-  padding: 10px 0;
+    background-color: $brand-info;
+    padding: 5px 0;
+    position: sticky;
+    top: 0;
 
-  .link {
-      padding: 0 10px;
-      color: $brand-primary;
-  }
+    .nav-link {
+        border: transparent 1px solid;
+        color: $white;
+        padding: 0 10px;
+
+        &.router-link-active {
+          border: $white 1px solid
+        }
+    }
 }

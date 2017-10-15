@@ -1,6 +1,21 @@
-<div class="container">
-  <nav class="nav">
-    <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="link">HOME</a>
-    <a [routerLink]="['/form']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="link">FORM</a>
-  </nav>
+<div class="nav-wrapper">
+    <div class="container">
+        <nav class="row navbar navbar-expand-lg navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a [routerLink]="['/']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="nav-link">BootStrap 4</a>
+                    </li>
+                    <li class="nav-item">
+                        <a [routerLink]="['/form']" [routerLinkActive]="['router-link-active']" [routerLinkActiveOptions]="{exact:true}" class="nav-link">Formulaire DAD</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
 </div>

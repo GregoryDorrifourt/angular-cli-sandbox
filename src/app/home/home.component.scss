@@ -1,0 +1,22 @@
+@import '~sass/variables';
+
+.demo {
+
+  > * {
+
+    background: $silver-mercury;
+    margin-bottom: 15px;
+    outline: $silver-nobel 1px solid;
+    padding: 10px;
+  }
+}
+
+pre {
+  width: 100%;
+}
+
+.box {
+
+  background: $white;
+  padding: 20px 30px;
+}
