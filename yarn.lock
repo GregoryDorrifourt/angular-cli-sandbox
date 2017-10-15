@@ -666,12 +666,9 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap@4.0.0-alpha.6:
-  version "4.0.0-alpha.6"
-  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-alpha.6.tgz#4f54dd33ac0deac3b28407bc2df7ec608869c9c8"
-  dependencies:
-    jquery ">=1.9.1"
-    tether "^1.4.0"
+bootstrap@4.0.0-beta:
+  version "4.0.0-beta"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0-beta.tgz#dc5928175d2e71310bc668cf9e05a907211b72a6"
 
 brace-expansion@^1.1.7:
   version "1.1.8"
@@ -2820,7 +2817,7 @@ jasminewd2@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/jasminewd2/-/jasminewd2-2.2.0.tgz#e37cf0b17f199cce23bea71b2039395246b4ec4e"
 
-jquery@>=1.9.1:
+jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
 
@@ -3814,6 +3811,10 @@ pinkie-promise@^2.0.0:
 pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
+
+popper.js@^1.0.2, popper.js@^1.12.5:
+  version "1.12.5"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.12.5.tgz#229e4dea01629e1f1a1e26991ffade5024220fa6"
 
 portfinder@^1.0.9, portfinder@~1.0.12:
   version "1.0.13"
@@ -5086,10 +5087,6 @@ tar@^2.0.0, tar@^2.2.1:
     fstream "^1.0.2"
     inherits "2"
 
-tether@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.0.tgz#0f9fa171f75bf58485d8149e94799d7ae74d1c1a"
-
 through@X.X.X:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
@@ -5141,6 +5138,12 @@ to-arraybuffer@^1.0.0:
 to-fast-properties@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
+
+tooltip.js@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/tooltip.js/-/tooltip.js-1.1.5.tgz#740703c7c0a52ff72bd3ae3e78c12a8609997a71"
+  dependencies:
+    popper.js "^1.0.2"
 
 toposort@^1.0.0:
   version "1.0.6"

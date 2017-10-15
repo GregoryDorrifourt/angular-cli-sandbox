@@ -1,0 +1,11 @@
+@import '~sass/variables';
+
+.nav {
+
+  padding: 10px 0;
+
+  .link {
+      padding: 0 10px;
+      color: $brand-primary;
+  }
+}
