@@ -1,2 +1,13 @@
 @import './variables';
 @import './mixins';
+@import './_bytel-bs-overwrite.scss';
+
+pre{
+
+    font-size: 11px;
+    background-color: $silver-mercury;
+    border: $silver-nobel 1px solid;
+    border-radius: 5px;
+    color: $silver-chalice;
+    padding: 10px 15px;
+}
