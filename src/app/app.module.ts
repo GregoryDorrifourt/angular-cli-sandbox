@@ -9,6 +9,7 @@ import { DadComponent } from './dad/dad.component';
 import { NavbarComponent } from './interface/navbar/navbar.component';
 import { FooterComponent } from './interface/footer/footer.component';
 import { HeaderComponent } from './interface/header/header.component';
+import { PlansWallComponent } from './plans-wall/plans-wall.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,8 @@ import { HeaderComponent } from './interface/header/header.component';
         HomeComponent,
         NavbarComponent,
         FooterComponent,
-        HeaderComponent
+        HeaderComponent,
+        PlansWallComponent
     ],
     imports: [
         AppRoutingModule,
