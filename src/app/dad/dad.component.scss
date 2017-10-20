@@ -1,0 +1,45 @@
+@import '~sass/variables';
+
+.dad-form {
+
+  .title-form {
+
+    color: $text-color;
+    font-size: 21px;
+    font-weight: 400;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .box {
+    margin-bottom: 20px;
+
+    .box-header {
+
+      background-color: $white;
+      margin-bottom: 2px;
+
+      .box-title {
+
+        color: $brand-info;
+        font-size: 21px;
+        font-weight: 400;
+        margin: 0;
+        padding: 20px 10px;
+      }
+    }
+
+    .box-content {
+
+      background-color: $white;
+      padding: 20px 0;
+    }
+  }
+
+  .submit-dad {
+
+    .text {
+      font-size: 14px;
+    }
+  }
+}

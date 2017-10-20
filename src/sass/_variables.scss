@@ -19,4 +19,22 @@ $brand-byou-o:          #39bdab !default;
 $brand-byou-u:          #00b25a !default;
 $brand-pro:             #583273 !default;
 
-$white:                 white;
+$text-color:            #666666 !default;
+
+$white:                 #ffffff !default;
+$black:                 #000000 !default;
+
+
+//== Forms
+
+//** `<input>` border color
+$input-border:                  #eaeaea !default;
+
+//** `<input>` border color
+$input-border-check:            #cccccc !default;
+
+//** Text color for `<input>`s
+$input-color:                   $silver-chalice !default;
+
+//** Placeholder text color
+$input-color-placeholder:       $silver-chalice !default;

@@ -1,4 +1,11 @@
 @import "./variables";
+@import "./mixins";
+
+/////////////////
+// Buttons
+.btn {
+  cursor: pointer;
+}
 
 .btn-primary, .badge-primary {
 
@@ -12,3 +19,47 @@
   border-color: $brand-secondary;
 }
 
+.btn-default {
+
+  color: $silver-chalice;
+  background-color: $white;
+  border-color: $input-border-check;
+  white-space: normal;
+  width: 100%;
+
+  &.active,
+  &:hover {
+
+    background-color: $brand-info;
+    border-color: $brand-info;
+    color: $white;
+
+  }
+}
+
+.contrast:hover {
+
+  background: $white;
+  border: 1px solid $brand-primary;
+  color: $brand-primary;
+}
+
+
+//////////////////
+// Form
+.form-control {
+
+  background-color: $silver-mercury;
+  border: 1px solid $input-border;
+  color: $silver-chalice;
+
+  &:focus {
+
+    background-color: $brand-info;
+    border-color: $brand-info;
+    outline: 0;
+  }
+
+  @include transition(border-color ease-in-out .15s, background-color ease-in-out .15s, color ease-in-out .15s);
+  @include placeholder;
+}
