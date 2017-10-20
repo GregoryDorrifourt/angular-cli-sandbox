@@ -1,3 +1,5 @@
+// COLORS
+
 $mine-shaft:            lighten(#000, 20%) !default;   // #333 old : $gray-dark
 $silver-chalice:        #454545 !default; // #555
 $silver-nobel:          #b5b5b5 !default; // #999
@@ -25,7 +27,7 @@ $white:                 #ffffff !default;
 $black:                 #000000 !default;
 
 
-//== Forms
+// FORMS
 
 //** `<input>` border color
 $input-border:                  #eaeaea !default;
@@ -38,3 +40,7 @@ $input-color:                   $silver-chalice !default;
 
 //** Placeholder text color
 $input-color-placeholder:       $silver-chalice !default;
+
+
+//  FONT SIZES
+$font-size-normal: 14px;

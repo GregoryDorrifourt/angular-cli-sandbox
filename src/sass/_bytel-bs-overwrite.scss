@@ -1,6 +1,17 @@
 @import "./variables";
 @import "./mixins";
 
+
+pre{
+
+  font-size: 11px;
+  background-color: $silver-mercury;
+  border: $silver-nobel 1px solid;
+  border-radius: 5px;
+  color: $silver-chalice;
+  padding: 10px 15px;
+}
+
 /////////////////
 // Buttons
 .btn {
@@ -21,9 +32,9 @@
 
 .btn-default {
 
-  color: $silver-chalice;
   background-color: $white;
   border-color: $input-border-check;
+  color: $silver-chalice;
   white-space: normal;
   width: 100%;
 
@@ -37,11 +48,16 @@
   }
 }
 
-.contrast:hover {
 
-  background: $white;
-  border: 1px solid $brand-primary;
-  color: $brand-primary;
+// work in progress
+.contrast {
+
+  &:hover {
+
+    background: $white;
+    border: 1px solid $brand-primary;
+    color: $brand-primary;
+  }
 }
 
 
