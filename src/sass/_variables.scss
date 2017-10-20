@@ -1,3 +1,5 @@
+// COLORS
+
 $mine-shaft:            lighten(#000, 20%) !default;   // #333 old : $gray-dark
 $silver-chalice:        #454545 !default; // #555
 $silver-nobel:          #b5b5b5 !default; // #999
@@ -19,4 +21,26 @@ $brand-byou-o:          #39bdab !default;
 $brand-byou-u:          #00b25a !default;
 $brand-pro:             #583273 !default;
 
-$white:                 white;
+$text-color:            #666666 !default;
+
+$white:                 #ffffff !default;
+$black:                 #000000 !default;
+
+
+// FORMS
+
+//** `<input>` border color
+$input-border:                  #eaeaea !default;
+
+//** `<input>` border color
+$input-border-check:            #cccccc !default;
+
+//** Text color for `<input>`s
+$input-color:                   $silver-chalice !default;
+
+//** Placeholder text color
+$input-color-placeholder:       $silver-chalice !default;
+
+
+//  FONT SIZES
+$font-size-normal: 14px;

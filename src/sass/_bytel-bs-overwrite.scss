@@ -1,4 +1,22 @@
 @import "./variables";
+@import "./mixins";
+
+
+pre{
+
+  font-size: 11px;
+  background-color: $silver-mercury;
+  border: $silver-nobel 1px solid;
+  border-radius: 5px;
+  color: $silver-chalice;
+  padding: 10px 15px;
+}
+
+/////////////////
+// Buttons
+.btn {
+  cursor: pointer;
+}
 
 .btn-primary, .badge-primary {
 
@@ -12,3 +30,52 @@
   border-color: $brand-secondary;
 }
 
+.btn-default {
+
+  background-color: $white;
+  border-color: $input-border-check;
+  color: $silver-chalice;
+  white-space: normal;
+  width: 100%;
+
+  &.active,
+  &:hover {
+
+    background-color: $brand-info;
+    border-color: $brand-info;
+    color: $white;
+
+  }
+}
+
+
+// work in progress
+.contrast {
+
+  &:hover {
+
+    background: $white;
+    border: 1px solid $brand-primary;
+    color: $brand-primary;
+  }
+}
+
+
+//////////////////
+// Form
+.form-control {
+
+  background-color: $silver-mercury;
+  border: 1px solid $input-border;
+  color: $silver-chalice;
+
+  &:focus {
+
+    background-color: $brand-info;
+    border-color: $brand-info;
+    outline: 0;
+  }
+
+  @include transition(border-color ease-in-out .15s, background-color ease-in-out .15s, color ease-in-out .15s);
+  @include placeholder;
+}
