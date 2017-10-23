@@ -1,45 +1,130 @@
 // Placeholder text
 @mixin placeholder($color: $silver-chalice) {
-  &::-moz-placeholder           { color: $color;   // Firefox
+    &::-moz-placeholder           { color: $color;   // Firefox
     opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
-  &:-ms-input-placeholder       { color: $color; } // Internet Explorer 10+
-  &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
+    &:-ms-input-placeholder       { color: $color; } // Internet Explorer 10+
+    &::-webkit-input-placeholder  { color: $color; } // Safari and Chrome
 
-  &:focus {
-    &::-moz-placeholder           { color: $white;   // Firefox
-      opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
-    &:-ms-input-placeholder       { color: $white; } // Internet Explorer 10+
-    &::-webkit-input-placeholder  { color: $white; } // Safari and Chrome
-  }
+    &:focus {
+        &::-moz-placeholder           { color: $white;   // Firefox
+          opacity: 1; } // See https://github.com/twbs/bootstrap/pull/11526
+        &:-ms-input-placeholder       { color: $white; } // Internet Explorer 10+
+        &::-webkit-input-placeholder  { color: $white; } // Safari and Chrome
+    }
+}
+
+@mixin button-variant($color, $background, $border) {
+
+    background-color: $background;
+    border-color: $border;
+    color: $color;
+
+    &.btn-trs {
+        background-color: transparent;
+    }
+    &.contrast {
+        background-color: transparent;
+        border-color: $color;
+        color: $color;
+    }
+    &.reversed {
+        background-color: $white;
+        border-color: $border;
+        color: $background;
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        color: $background;
+        background-color: $color;
+        &.normal {
+            color: $color;
+            background-color: darken($background, 5%);
+        }
+        &.reversed {
+            background-color: $background;
+            border-color: $border;
+            color: $white;
+        }
+        &.btn-primary {
+            color: $brand-primary;
+            background-color: $white;
+            border-color: $brand-primary;
+        }
+        &.btn-secondary {
+            color: $white;
+            background-color: $brand-secondary;
+            border-color: $brand-secondary;
+        }
+        &.no-hover {
+            color: $color;
+            background-color: $background;
+            border-color: $border;
+        }
+        &.btn-outline {
+            color: $silver-chalice;
+        }
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-image: none;
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: $background;
+            border-color: $border;
+        }
+    }
+
+    .badge {
+        color: $background;
+        background-color: $color;
+    }
 }
 
 
 // Transitions
 
 @mixin transition($transition...) {
-  -webkit-transition: $transition;
-  -o-transition: $transition;
-  transition: $transition;
+
+    -webkit-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
 }
 @mixin transition-property($transition-property...) {
-  -webkit-transition-property: $transition-property;
-  transition-property: $transition-property;
+
+    -webkit-transition-property: $transition-property;
+    transition-property: $transition-property;
 }
 @mixin transition-delay($transition-delay) {
-  -webkit-transition-delay: $transition-delay;
-  transition-delay: $transition-delay;
+
+    -webkit-transition-delay: $transition-delay;
+    transition-delay: $transition-delay;
 }
 @mixin transition-duration($transition-duration...) {
-  -webkit-transition-duration: $transition-duration;
-  transition-duration: $transition-duration;
+
+    -webkit-transition-duration: $transition-duration;
+    transition-duration: $transition-duration;
 }
 @mixin transition-timing-function($timing-function) {
-  -webkit-transition-timing-function: $timing-function;
-  transition-timing-function: $timing-function;
+
+    -webkit-transition-timing-function: $timing-function;
+    transition-timing-function: $timing-function;
 }
 @mixin transition-transform($transition...) {
-  -webkit-transition: -webkit-transform $transition;
-  -moz-transition: -moz-transform $transition;
-  -o-transition: -o-transform $transition;
-  transition: transform $transition;
+
+    -webkit-transition: -webkit-transform $transition;
+    -moz-transition: -moz-transform $transition;
+    -o-transition: -o-transform $transition;
+    transition: transform $transition;
 }

@@ -4,78 +4,51 @@
 
 pre{
 
-  font-size: 11px;
-  background-color: $silver-mercury;
-  border: $silver-nobel 1px solid;
-  border-radius: 5px;
-  color: $silver-chalice;
-  padding: 10px 15px;
+    background-color: $silver-mercury;
+    border: $silver-nobel 1px solid;
+    border-radius: 5px;
+    color: $silver-chalice;
+    font-size: $font-size-normal;
+    padding: 10px 15px;
 }
 
 /////////////////
 // Buttons
+
 .btn {
-  cursor: pointer;
+    @include button-variant($white, $silver-chalice, $silver-chalice);
 }
-
-.btn-primary, .badge-primary {
-
-  background-color: $brand-primary;
-  border-color: $brand-primary;
+.btn-primary {
+    @include button-variant($white, $brand-primary, $brand-primary);
 }
-
-.btn-secondary, .badge-secondary {
-
-  background-color: $brand-secondary;
-  border-color: $brand-secondary;
+.btn-secondary {
+    @include button-variant($white, $brand-secondary, $brand-secondary);
 }
-
-.btn-default {
-
-  background-color: $white;
-  border-color: $input-border-check;
-  color: $silver-chalice;
-  white-space: normal;
-  width: 100%;
-
-  &.active,
-  &:hover {
-
-    background-color: $brand-info;
-    border-color: $brand-info;
-    color: $white;
-
-  }
+.btn-info {
+    @include button-variant($white, $brand-info, $brand-info);
 }
 
 
 // work in progress
-.contrast {
 
-  &:hover {
-
-    background: $white;
-    border: 1px solid $brand-primary;
-    color: $brand-primary;
-  }
-}
 
 
 //////////////////
 // Form
 .form-control {
 
-  background-color: $silver-mercury;
-  border: 1px solid $input-border;
-  color: $silver-chalice;
+    background-color: $silver-mercury;
+    border: 1px solid $input-border;
+    color: $silver-chalice;
 
-  &:focus {
+    &:focus {
 
-    background-color: $brand-info;
-    border-color: $brand-info;
-    outline: 0;
-  }
+        background-color: $brand-info;
+        border-color: $brand-info;
+        color: $white;
+        outline: 0;
+    }
 
-  @include transition(border-color ease-in-out .15s, background-color ease-in-out .15s, color ease-in-out .15s);
-  @include placeholder;
+    @include transition(border-color ease-in-out .15s, background-color ease-in-out .15s, color ease-in-out .15s);
+    @include placeholder;
 }
