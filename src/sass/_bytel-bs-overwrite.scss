@@ -1,5 +1,5 @@
-@import "./variables";
-@import "./mixins";
+@import "bytel-variables";
+@import "bytel-mixins";
 
 
 pre{
@@ -26,6 +26,12 @@ pre{
 }
 .btn-info {
     @include button-variant($white, $brand-info, $brand-info);
+}
+.btn-success {
+    @include button-variant($white, $brand-success, $brand-success);
+}
+.btn-danger {
+    @include button-variant($white, $brand-danger, $brand-danger);
 }
 
 
@@ -119,6 +125,7 @@ pre{
         }
 
         .form-control {
+
             background-color: $brand-danger;
             border-color: $white;
             color: $white;

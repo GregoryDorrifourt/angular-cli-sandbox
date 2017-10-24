@@ -1,4 +1,4 @@
-@import '~sass/variables';
+@import '~sass/bytel-variables';
 
 .demo {
 
@@ -41,7 +41,12 @@ pre {
                 padding: 15px 0;
 
                 .dark {
-                    background-color: $silver-nobel;
+                    background-color: $silver-mercury;
+                    padding: 10px 15px;
+                }
+                .darker {
+                    background-color: $silver-chalice;
+                    padding: 10px 15px;
                 }
             }
         }

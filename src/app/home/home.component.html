@@ -1,10 +1,17 @@
 <div class="container">
     <div class="jumbotron">
         <h1 class="display-3">Bootstrap 4 Showcase</h1>
-        <p class="lead">Petit espace pour faire joujou avec Bootstrap 4, tester le nouveau système de grid et les composants.<a class="link" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">Aller sur le site de Bootstrap</a></p>
+        <p class="lead">Petit espace pour faire joujou avec Bootstrap 4, tester le nouveau système de grid et les composants.<br>
+            <a class="link" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">Aller sur le site de Bootstrap</a></p>
+        <hr class="my-4">
+        <p><strong>Rubriques :</strong></p>
+        <ul>
+            <li><a href="#buttons">Boutons</a></li>
+            <li><a href="#forms">Formulaires</a></li>
+        </ul>
     </div>
 
-    <div class="box">
+    <div class="box" id="buttons">
         <div class="row box-header">
             <div class="col-12">
                 <h2  class="box-title">Boutons</h2>
@@ -39,42 +46,58 @@
                 </div>
                 <div class="row align-items-center">
                     <div class="col-4">
+                        <button class="btn btn-success btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-success</span>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-4">
+                        <button class="btn btn-danger btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-danger</span>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-4">
                         <button class="btn btn-default btn-block">Valider</button>
                     </div>
                     <div class="col-8">
                         Classe <span class="showcase-code">.btn-default</span>
                     </div>
                 </div>
-                <div class="row align-items-center dark">
-                    <div class="col-4">
+                <div class="row align-items-center">
+                    <div class="col-4 dark">
                         <button class="btn btn-primary reversed btn-block">Valider</button>
                     </div>
                     <div class="col-8">
-                        Classe <span class="showcase-code">.btn-primary</span> + classe <span class="showcase-code">.reversed</span>
+                        Classe <span class="showcase-code">.btn-primary</span> + <span class="showcase-code">.reversed</span>
                     </div>
                 </div>
-                <div class="row align-items-center dark">
-                    <div class="col-4">
-                        <button class="btn btn-secondary reversed btn-block">Valider</button>
+                <div class="row align-items-center">
+                    <div class="col-4 dark">
+                        <button class="btn btn-primary transparent btn-block">Valider</button>
                     </div>
                     <div class="col-8">
-                        Classe <span class="showcase-code">.btn-secondary</span> + classe <span class="showcase-code">.reversed</span>
+                        Classe <span class="showcase-code">.btn-primary</span> + <span class="showcase-code">.transparent</span>
                     </div>
                 </div>
-                <div class="row align-items-center dark">
-                    <div class="col-4">
-                        <button class="btn btn-info reversed btn-block">Valider</button>
+                <div class="row align-items-center">
+                    <div class="col-4 dark">
+                        <button class="btn btn-primary reversed transparent btn-block">Valider</button>
                     </div>
                     <div class="col-8">
-                        Classe <span class="showcase-code">.btn-info</span> + classe <span class="showcase-code">.reversed</span>
+                        Classe <span class="showcase-code">.btn-primary</span> + <span class="showcase-code">.reversed</span> + <span class="showcase-code">.transparent</span>
                     </div>
                 </div>
-                <div class="row align-items-center dark">
-                    <div class="col-4">
-                        <button class="btn btn-default reversed btn-block">Valider</button>
+                <div class="row align-items-center">
+                    <div class="col-4 darker">
+                        <button class="btn btn-default contrast btn-block">Valider</button>
                     </div>
                     <div class="col-8">
-                        Classe <span class="showcase-code">.btn-default</span> + classe <span class="showcase-code">.reversed</span>
+                        Classe <span class="showcase-code">.btn-default</span> + <span class="showcase-code">.contrast</span>
                     </div>
                 </div>
             </div>
@@ -82,7 +105,7 @@
         </div>
     </div>
 
-    <div class="box">
+    <div class="box" id="forms">
         <div class="row box-header">
             <div class="col-12">
                 <h2 class="box-title">Formulaires</h2>
