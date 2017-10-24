@@ -8,20 +8,22 @@
               <p><strong>Compétences :</strong></p>
               <ul>
                 <li>Intégration de formulaire en BS4 <span class="badge badge-primary">INTE</span></li>
-                <li>Apprendre le ngModel <span class="badge badge-secondary">DEV</span></li>
-                <li>Manipulation de formulaire (patterns, required, submit) <span class="badge badge-secondary">DEV</span></li>
-                <li>Inclusion de templates externes <span class="badge badge-secondary">DEV</span></li>
+                <li>Surcharge de BS4 (Brand Bytel) <span class="badge badge-primary">INTE</span></li>
+                <li>Création de formulaire <span class="badge badge-secondary">DEV</span></li>
+                <li>Validation de formulaire (patterns, required, submit) <span class="badge badge-secondary">DEV</span></li>
+                <li>Inclusion de templates externes (Simulation d'affichage de bloc CMS) <span class="badge badge-secondary">DEV</span></li>
               </ul>
             </div>
         </div>
     </div>
 </div>
-
-<div class="dad-form">
+<pre>{{formData.value | json}}</pre>
+<pre>{{formData.status}}</pre>
+<form class="dad-form" (ngSubmit)="submitForm()" [formGroup]="formData">
     <div class="container">
         <div class="row">
             <div class="col-12">
-               <h1 class="title-form">Passer à la fibre Bouygues Telecom</h1>
+               <h1 class="title-form">Passer à la fibre Bouygues Telecom &times;</h1>
             </div>
         </div>
     </div>
@@ -39,22 +41,23 @@
                 <div class="row box-content justify-content-center">
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Numéro de contrat</label>
-                        <input class="form-control" type="text" placeholder="Numéro de contrat" name="contract_id" minlength="13" maxlength="13">
+                        <input class="form-control" formControlName="contract_id" type="text" placeholder="Numéro de contrat" minlength="13" maxlength="13">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
-                        <select class="form-control" name="company_name">
+                        <select class="form-control" formControlName="company_name">
+                            <option *ngFor="let company of companies" [ngValue]="company.value">{{company.label}}</option>
                         </select>
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Identifiant vendeur</label>
-                        <input class="form-control" type="text" placeholder="Identifiant vendeur" name="seller_id">
+                        <input class="form-control" formControlName="seller_id" type="text" placeholder="Identifiant vendeur">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Date de naissance (JJ/MM/AAAA)</label>
-                        <input class="form-control" type="text" placeholder="Date de signature du contrat (JJ/MM/AAAA)" name="contract_signed_at" minlength="10" maxlength="10">
+                        <input class="form-control" formControlName="contract_signed_at" type="text" placeholder="Date de signature du contrat (JJ/MM/AAAA)" minlength="10" maxlength="10">
                     </div>
                 </div>
             </div>
@@ -74,76 +77,92 @@
                 <div class="row box-content justify-content-center">
                     <div class="col-12 col-md-9 mb-3 mb-lg-0">
                         <div class="row pl-3 pr-3" data-toggle="buttons">
-                            <label class="col-12 col-md btn btn-default active">
-                                <input type="radio" name="type_client" id="newCustomer" autocomplete="off" checked>
+                            <label class="col-12 col-md btn btn-info reversed" for="newCustomer" (click)="rbChange('type_client','new_customer')">
+                                <input type="radio" formControlName="type_client" value="new_customer" id="newCustomer">
                                 Nouveau client fixe
                             </label>
 
-                            <label class="col-12 col-md btn btn-default">
-                                <input type="radio" name="type_client" id="alreadyCustome" autocomplete="off">
+                            <label class="col-12 col-md btn btn-info reversed" for="alreadyCustomer" (click)="rbChange('type_client','already_customer')">
+                                <input type="radio" formControlName="type_client" value="already_customer" id="alreadyCustomer" >
                                 Déjà client fixe
                             </label>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-9 mb-3 mb-lg-0">
+                    <div class="col-12 col-md-9 mb-3">
                         <div class="row pl-3 pr-3" data-toggle="buttons">
-                            <label class="col-12 col-md btn btn-default active">
-                                <input type="radio" name="prefix" id="M." autocomplete="off" checked>
+                            <label class="col-12 col-md btn btn-info reversed" for="prefix_m" (click)="rbChange('prefix','M')">
+                                <input type="radio" formControlName="prefix" value="M" id="prefix_m">
                                 Monsieur
                             </label>
 
-                            <label class="col-12 col-md btn btn-default">
-                                <input type="radio" name="prefix" id="Mme" autocomplete="off">
+                            <label class="col-12 col-md btn btn-info reversed" for="prefix_mme" (click)="rbChange('prefix','MME')">
+                                <input type="radio" formControlName="prefix" value="MME"  id="prefix_mme">
                                 Madame
                             </label>
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-9 form-group">
+                    <div class="col-12 col-md-9 form-group has-success">
                         <label class="sr-only">Nom</label>
-                        <input class="form-control" type="text" placeholder="Nom" name="lastname">
+                        <input class="form-control" type="text" placeholder="Nom" formControlName="lastname">
+
+                        <!-- error -->
+                        <ul class="errors col-12 col-md-9 d-none">
+                            <li class="help-block">
+                                Ce champ est requis
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="col-12 col-md-9 form-group">
+
+                    <div class="col-12 col-md-9 form-group has-error">
                         <label class="sr-only">Prénom</label>
-                        <input class="form-control" type="text" placeholder="Prénom" name="firstname">
+                        <input class="form-control" type="text" placeholder="Prénom" formControlName="firstname">
+
+                        <!-- error -->
+                        <ul class="errors col-12 col-md-9">
+                            <li class="help-block">
+                                Ce champ est requis
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Date de naissance (JJ/MM/AAAA)</label>
-                        <input class="form-control" type="text" placeholder="Date de naissance (JJ/MM/AAAA)" name="birth_date" minlength="10" maxlength="10">
+                        <input class="form-control" type="text" placeholder="Date de naissance (JJ/MM/AAAA)" formControlName="birth_date" minlength="10" maxlength="10">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Département de naissance</label>
-                        <select class="form-control" name="birth_department">
+                        <select class="form-control" formControlName="birth_department">
+                            <option *ngFor="let dep of departments" [ngValue]="dep.value">{{dep.label}}</option>
                         </select>
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Téléphone mobile</label>
-                        <input class="form-control" type="text" placeholder="Téléphone mobile" name="mobile" minlength="10" maxlength="10">
+                        <input class="form-control" type="text" placeholder="Téléphone mobile" formControlName="mobile" minlength="10" maxlength="10">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Téléphone fixe</label>
-                        <input class="form-control" type="text" placeholder="Téléphone fixe" name="fixe" minlength="10" maxlength="10">
+                        <input class="form-control" type="text" placeholder="Téléphone fixe" formControlName="fixe" minlength="10" maxlength="10">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Email de contact</label>
-                        <input class="form-control" type="email" placeholder="Email de contact" name="email">
+                        <input class="form-control" type="email" placeholder="Email de contact" formControlName="email">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Pièce d'identité de l'acheteur</label>
-                        <input class="form-control" type="text" placeholder="Pièce d'identité de l'acheteur" name="identity_document">
+                        <input class="form-control" type="text" placeholder="Pièce d'identité de l'acheteur" formControlName="identity_document">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Numéro de la pièce d'identité</label>
-                        <input class="form-control" type="text" placeholder="Numéro de la pièce d'identité" name="identity_document_number">
+                        <input class="form-control" type="text" placeholder="Numéro de la pièce d'identité" formControlName="identity_document_number">
                     </div>
                 </div>
             </div>
@@ -162,51 +181,57 @@
 
                 <div class="row box-content justify-content-center">
                     <div class="col-12 col-md-9">
-                        <div class="row pl-3 pr-3" data-toggle="buttons">
-                            <label class="col-12 col-md btn btn-default active">
-                                <input type="radio" name="keep" id="option1" autocomplete="off" checked>
+                        <div class="row pl-3 pr-3 form-group" data-toggle="buttons">
+                            <label class="col-12 col-md btn btn-info reversed" for="keep_true" (click)="rbChange('keep', true)">
+                                <input type="radio" formControlName="keep" id="keep_true" autocomplete="off">
                                 Conserver mon numéro
                             </label>
 
-                            <label class="col-12 col-md btn btn-default">
-                                <input type="radio" name="keep" id="option2" autocomplete="off">
+                            <label class="col-12 col-md btn btn-info reversed" for="keep_false" (click)="rbChange('keep', false)">
+                                <input type="radio" formControlName="keep" id="keep_false" autocomplete="off">
                                 Obtenir un nouveau numéro
                             </label>
                         </div>
 
                         <div class="row">
+
+                            <div class="col-12 form-group" *ngIf="formData.value.keep">
+                                <label class="sr-only">Numéro à conserver</label>
+                                <input class="form-control" type="text" placeholder="Numéro à conserver" formControlName="keep_number" minlength="10" maxlength="10">
+                            </div>
+
                             <div class="col-12 form-group">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="annuaire_universel" id="annuaire_universel">
+                                    <input class="form-check-input" type="checkbox" formControlName="annuaire_universel" id="annuaire_universel">
                                     Inscription à l'Annuaire Universel Fixe
                                 </label>
                             </div>
-                            <div class="col-12 ml-3 d-none">
+                            <div class="col-12 ml-3" *ngIf="formData.value.annuaire_universel">
 
                                 <div class="form-group">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" name="anti_prospection" id="anti_prospection">
+                                        <input class="form-check-input" type="checkbox" formControlName="anti_prospection" id="anti_prospection">
                                         Anti-prospection
                                     </label>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" name="sans_adresse_complete" id="sans_adresse_complete">
+                                        <input class="form-check-input" type="checkbox" formControlName="sans_adresse_complete" id="sans_adresse_complete">
                                         Sans adresse complète
                                     </label>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" name="sans_prenom_complet" id="sans_prenom_complet">
+                                        <input class="form-check-input" type="checkbox" formControlName="sans_prenom_complet" id="sans_prenom_complet">
                                         Sans prénom complet
                                     </label>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" name="anti_annuaire_inverse" id="anti_annuaire_inverse">
+                                        <input class="form-check-input" type="checkbox" formControlName="anti_annuaire_inverse" id="anti_annuaire_inverse">
                                         Anti-Annuaire inversé
                                     </label>
                                 </div>
@@ -214,7 +239,7 @@
 
                             <div class="col-12 form-group">
                                 <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" name="controle_parental" id="controle_parental">
+                                    <input class="form-check-input" type="checkbox" formControlName="controle_parental" id="controle_parental">
                                     Activation contrôle parental
                                 </label>
                             </div>
@@ -238,41 +263,41 @@
                 <div class="row box-content justify-content-center">
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Adresse (Numéro + voie)</label>
-                        <input class="form-control" type="text" placeholder="Adresse (Numéro + voie)" name="address">
+                        <input class="form-control" type="text" placeholder="Adresse (Numéro + voie)" formControlName="address">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <div class="row">
                             <div class="col-12 col-lg mb-3 mb-lg-0">
                                 <label class="sr-only">Batiment</label>
-                                <input class="form-control" type="text" placeholder="Batiment" name="">
+                                <input class="form-control" type="text" placeholder="Batiment" formControlName="building">
                             </div>
 
                             <div class="col-12 col-lg mb-3 mb-lg-0">
                                 <label class="sr-only">Etage</label>
-                                <input class="form-control" type="text" placeholder="Etage" name="">
+                                <input class="form-control" type="text" placeholder="Etage" formControlName="stage">
                             </div>
 
                             <div class="col-12 col-lg">
                                 <label class="sr-only">Escalier</label>
-                                <input class="form-control" type="text" placeholder="Escalier" name="">
+                                <input class="form-control" type="text" placeholder="Escalier" formControlName="stairs">
                             </div>
                         </div>
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Ville</label>
-                        <input class="form-control" type="text" placeholder="Ville" name="city">
+                        <input class="form-control" type="text" placeholder="Ville" formControlName="city">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Code postal</label>
-                        <input class="form-control" type="text" placeholder="Code postal" name="postal_code" minlength="5" maxlength="5">
+                        <input class="form-control" type="text" placeholder="Code postal" formControlName="postal_code" minlength="5" maxlength="5">
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
                         <label class="sr-only">Numéro de prise PTO (Prise de termination optique)</label>
-                        <input class="form-control" type="text" placeholder="Numéro de prise PTO (Prise de termination optique)" name="">
+                        <input class="form-control" type="text" placeholder="Numéro de prise PTO (Prise de termination optique)" formControlName="pto">
                     </div>
                 </div>
             </div>
@@ -289,13 +314,13 @@
                     </div>
 
                     <div class="col-auto ml-auto ml-md-0">
-                        <input class="fake-radio-input" type="radio" id="miami" name="offer" value="miami"/>
+                        <input class="fake-radio-input" type="radio" id="miami" formControlName="offer" value="miami"/>
                         <span class="fake-radio"></span>
                         <label class="mb-0 pl-2" for="miami">Miami</label>
                     </div>
 
                     <div class="col-auto mr-auto">
-                        <input class="fake-radio-input" type="radio" id="miami_plus" name="offer" value="miami_plus"/>
+                        <input class="fake-radio-input" type="radio" id="miami_plus" formControlName="offer" value="miami_plus"/>
                         <span class="fake-radio"></span>
                         <label class="mb-0 pl-2" for="miami_plus">Miami+</label>
                     </div>
@@ -327,13 +352,13 @@
 
                 <div class="row box-content justify-content-center">
                     <div class="col-12 col-md-9 form-group">
-                        <input class="fake-radio-input" type="radio" id="prelevement" name="payment_method" value="prelevement"/>
+                        <input class="fake-radio-input" type="radio" id="prelevement" formControlName="payment_method" value="prelevement"/>
                         <span class="fake-radio"></span>
                         <label class="pl-2" for="prelevement">Prélèvement</label>
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
-                        <input class="fake-radio-input" type="radio" id="mandat" name="payment_method" value="mandat"/>
+                        <input class="fake-radio-input" type="radio" id="mandat" formControlName="payment_method" value="mandat"/>
                         <span class="fake-radio"></span>
                         <label class="pl-2" for="mandat">Mandat à compte (à remettre)</label>
                     </div>
@@ -347,7 +372,7 @@
         <div class="row">
             <div class="col-12 col-lg-9 m-lg-auto text-center">
                 <div class="row justify-content-center">
-                    <button class="col-5 btn btn-primary contrast mt-2 mb-4" type="submit">
+                    <button class="col-5 btn btn-primary mt-2 mb-4" type="submit">
                         <span class="lead">Valider</span>
                     </button>
                 </div>
@@ -356,5 +381,5 @@
             </div>
         </div>
     </section>
-</div>
+</form>
 
