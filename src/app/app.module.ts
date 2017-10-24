@@ -10,6 +10,7 @@ import { NavbarComponent } from './interface/navbar/navbar.component';
 import { FooterComponent } from './interface/footer/footer.component';
 import { HeaderComponent } from './interface/header/header.component';
 import { PlansWallComponent } from './plans-wall/plans-wall.component';
+import { FaiResultsComponent } from './fai-results/fai-results.component';
 
 @NgModule({
     declarations: [
@@ -19,7 +20,8 @@ import { PlansWallComponent } from './plans-wall/plans-wall.component';
         NavbarComponent,
         FooterComponent,
         HeaderComponent,
-        PlansWallComponent
+        PlansWallComponent,
+        FaiResultsComponent
     ],
     imports: [
         AppRoutingModule,
