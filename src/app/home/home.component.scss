@@ -17,6 +17,34 @@ pre {
 
 .box {
 
-  background: $white;
-  padding: 20px 30px;
+    color: $silver-chalice;
+    margin-bottom: 30px;
+
+    .box-header {
+
+        background-color: $white;
+        padding: 19px 19px 15px;
+    }
+
+    .box-content {
+        background-color: $white;
+        margin-top: 2px;
+        padding: 20px 20px 20px;
+
+        .content-title {
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+
+            .row {
+                padding: 15px 0;
+
+                .dark {
+                    background-color: $silver-nobel;
+                }
+            }
+        }
+    }
+
 }

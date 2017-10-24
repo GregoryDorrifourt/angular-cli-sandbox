@@ -18,19 +18,20 @@
     background-color: $background;
     border-color: $border;
     color: $color;
+    cursor: pointer;
 
     &.btn-trs {
         background-color: transparent;
-    }
-    &.contrast {
-        background-color: transparent;
-        border-color: $color;
-        color: $color;
     }
     &.reversed {
         background-color: $white;
         border-color: $border;
         color: $background;
+    }
+    &.contrast {
+        background-color: transparent;
+        border-color: $color;
+        color: $color;
     }
 
     &:hover,
@@ -40,25 +41,19 @@
     .open > &.dropdown-toggle {
         color: $background;
         background-color: $color;
+        border-color:$border;
+
         &.normal {
             color: $color;
             background-color: darken($background, 5%);
+            border-color:$color;
         }
         &.reversed {
             background-color: $background;
             border-color: $border;
             color: $white;
         }
-        &.btn-primary {
-            color: $brand-primary;
-            background-color: $white;
-            border-color: $brand-primary;
-        }
-        &.btn-secondary {
-            color: $white;
-            background-color: $brand-secondary;
-            border-color: $brand-secondary;
-        }
+
         &.no-hover {
             color: $color;
             background-color: $background;

@@ -1,40 +1,161 @@
-<div class="jumbotron">
-    <h1 class="display-3">Bootstrap 4 Sandbox</h1>
-    <p class="lead">Petit espace pour faire joujou avec Bootstrap 4, tester le nouveau système de grid et les composants. <a class="link" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">Aller sur le site de Bootstrap</a></p>
-    <hr class="my-4">
-    <p><strong>Compétences :</strong></p>
-    <ul>
-        <li>Initiation à BS4 <span class="badge badge-primary">INTE</span></li>
-        <li>Utilisation du nouveau système de grid <span class="badge badge-primary">INTE</span></li>
-        <li>Utilisation des composants <span class="badge badge-primary">INTE</span></li>
-    </ul>
-</div>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="display-3">Bootstrap 4 Showcase</h1>
+        <p class="lead">Petit espace pour faire joujou avec Bootstrap 4, tester le nouveau système de grid et les composants.<a class="link" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/">Aller sur le site de Bootstrap</a></p>
+    </div>
 
-<div class="box">
-    <h3>Grid system :</h3>
-    <hr>
-    <div class="row demo">
-        <div class="col">
-            col
+    <div class="box">
+        <div class="row box-header">
+            <div class="col-12">
+                <h2  class="box-title">Boutons</h2>
+            </div>
         </div>
-        <div class="col-auto">
-            col-auto (s'adapte au contenu)
-        </div>
-        <div class="col-md-3">
-            col-md-3
+
+        <div class="row box-content">
+            <div class="col-12 col-md-8 m-auto buttons">
+                <div class="row align-items-center">
+                    <div class="col-4">
+                        <button class="btn btn-primary btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-primary</span>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-4">
+                        <button class="btn btn-secondary btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-secondary</span>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-4">
+                        <button class="btn btn-info btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-info</span>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-4">
+                        <button class="btn btn-default btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-default</span>
+                    </div>
+                </div>
+                <div class="row align-items-center dark">
+                    <div class="col-4">
+                        <button class="btn btn-primary reversed btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-primary</span> + classe <span class="showcase-code">.reversed</span>
+                    </div>
+                </div>
+                <div class="row align-items-center dark">
+                    <div class="col-4">
+                        <button class="btn btn-secondary reversed btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-secondary</span> + classe <span class="showcase-code">.reversed</span>
+                    </div>
+                </div>
+                <div class="row align-items-center dark">
+                    <div class="col-4">
+                        <button class="btn btn-info reversed btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-info</span> + classe <span class="showcase-code">.reversed</span>
+                    </div>
+                </div>
+                <div class="row align-items-center dark">
+                    <div class="col-4">
+                        <button class="btn btn-default reversed btn-block">Valider</button>
+                    </div>
+                    <div class="col-8">
+                        Classe <span class="showcase-code">.btn-default</span> + classe <span class="showcase-code">.reversed</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="row">
-        <pre><![CDATA[<div class="row">
-        <div class="col">
-            col
+
+    <div class="box">
+        <div class="row box-header">
+            <div class="col-12">
+                <h2 class="box-title">Formulaires</h2>
+            </div>
         </div>
-        <div class="col-auto">
-            col-auto (s'adapte au contenu)
+
+        <div class="row box-content">
+            <div class="col-12 col-md-8 m-auto">
+                <h3 class="content-title">Input text</h3>
+            </div>
+            <div class="col-12 col-md-8 m-auto">
+                <div class="col-12 form-group">
+                    <label class="sr-only">Téléphone mobile</label>
+                    <input class="form-control" type="text" placeholder="Téléphone mobile" name="mobile" minlength="10" maxlength="10">
+                </div>
+
+                <p>Classe <span class="showcase-code">.has-success</span> pour les champs valides :</p>
+                <div class="col-12 form-group has-success">
+                    <label class="sr-only">Téléphone mobile</label>
+                    <input class="form-control" type="text" placeholder="Téléphone mobile" name="mobile" minlength="10" maxlength="10">
+                </div>
+
+                <p>Classe <span class="showcase-code">.has-error</span> pour les champs invalides :</p>
+                <div class="col-12 form-group has-error">
+                    <label class="sr-only">Téléphone mobile</label>
+                    <input class="form-control" type="text" placeholder="Téléphone mobile" name="mobile" minlength="10" maxlength="10">
+                    <!-- error -->
+                    <ul class="errors">
+                        <li class="help-block">
+                            Ce champ est requis
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="col-md-3">
-            col-md-3
+        <div class="row box-content">
+            <div class="col-12 col-md-8 m-auto">
+                <h3 class="content-title">Select input</h3>
+            </div>
+            <div class="col-12 col-md-8 m-auto">
+                <div class="col-12 form-group">
+                    <label class="sr-only">Téléphone mobile</label>
+                    <select class="form-control" placeholder="Téléphone mobile" name="mobile">
+                        <option>-- Sélectionner une valeur --</option>
+                        <option>Value 1</option>
+                        <option>Value 2</option>
+                    </select>
+                </div>
+
+                <p>Classe <span class="showcase-code">.has-success</span> pour les champs valides :</p>
+                <div class="col-12 form-group has-success">
+                    <label class="sr-only">Téléphone mobile</label>
+                    <select class="form-control" placeholder="Téléphone mobile" name="mobile">
+                        <option>Value 1</option>
+                        <option>Value 2</option>
+                    </select>
+                </div>
+
+                <p>Classe <span class="showcase-code">.has-error</span> pour les champs invalides :</p>
+                <div class="col-12 form-group has-error">
+                    <label class="sr-only">Téléphone mobile</label>
+                    <select class="form-control" placeholder="Téléphone mobile" name="mobile">
+                        <option>-- Sélectionner une valeur --</option>
+                        <option>Value 1</option>
+                        <option>Value 2</option>
+                    </select>
+                    <ul class="errors">
+                        <li class="help-block">
+                            Ce champ est requis
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>]]></pre>
     </div>
 </div>
