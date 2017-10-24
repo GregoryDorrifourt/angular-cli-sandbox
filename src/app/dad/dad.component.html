@@ -23,7 +23,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-               <h1 class="title-form">Passer à la fibre Bouygues Telecom</h1>
+               <h1 class="title-form">Passer à la fibre Bouygues Telecom &times;</h1>
             </div>
         </div>
     </div>
@@ -103,14 +103,29 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-9 form-group">
+                    <div class="col-12 col-md-9 form-group has-success">
                         <label class="sr-only">Nom</label>
                         <input class="form-control" type="text" placeholder="Nom" formControlName="lastname">
+
+                        <!-- error -->
+                        <ul class="errors col-12 col-md-9 d-none">
+                            <li class="help-block">
+                                Ce champ est requis
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="col-12 col-md-9 form-group">
+
+                    <div class="col-12 col-md-9 form-group has-error">
                         <label class="sr-only">Prénom</label>
                         <input class="form-control" type="text" placeholder="Prénom" formControlName="firstname">
+
+                        <!-- error -->
+                        <ul class="errors col-12 col-md-9">
+                            <li class="help-block">
+                                Ce champ est requis
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="col-12 col-md-9 form-group">
@@ -357,7 +372,7 @@
         <div class="row">
             <div class="col-12 col-lg-9 m-lg-auto text-center">
                 <div class="row justify-content-center">
-                    <button class="col-5 btn btn-primary mt-2 mb-4" type="submit" [disabled]="!formData.valid">
+                    <button class="col-5 btn btn-primary mt-2 mb-4" type="submit">
                         <span class="lead">Valider</span>
                     </button>
                 </div>
