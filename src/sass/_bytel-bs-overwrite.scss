@@ -4,78 +4,123 @@
 
 pre{
 
-  font-size: 11px;
-  background-color: $silver-mercury;
-  border: $silver-nobel 1px solid;
-  border-radius: 5px;
-  color: $silver-chalice;
-  padding: 10px 15px;
+    background-color: $silver-mercury;
+    border: $silver-nobel 1px solid;
+    border-radius: 5px;
+    color: $silver-chalice;
+    font-size: $font-size-normal;
+    padding: 10px 15px;
 }
 
 /////////////////
 // Buttons
+
 .btn {
-  cursor: pointer;
+    @include button-variant($white, $silver-chalice, $silver-chalice);
 }
-
-.btn-primary, .badge-primary {
-
-  background-color: $brand-primary;
-  border-color: $brand-primary;
+.btn-primary {
+    @include button-variant($white, $brand-primary, $brand-primary);
 }
-
-.btn-secondary, .badge-secondary {
-
-  background-color: $brand-secondary;
-  border-color: $brand-secondary;
+.btn-secondary {
+    @include button-variant($white, $brand-secondary, $brand-secondary);
 }
-
-.btn-default {
-
-  background-color: $white;
-  border-color: $input-border-check;
-  color: $silver-chalice;
-  white-space: normal;
-  width: 100%;
-
-  &.active,
-  &:hover {
-
-    background-color: $brand-info;
-    border-color: $brand-info;
-    color: $white;
-
-  }
+.btn-info {
+    @include button-variant($white, $brand-info, $brand-info);
 }
 
 
 // work in progress
-.contrast {
 
-  &:hover {
-
-    background: $white;
-    border: 1px solid $brand-primary;
-    color: $brand-primary;
-  }
-}
 
 
 //////////////////
 // Form
-.form-control {
+.form-group {
 
-  background-color: $silver-mercury;
-  border: 1px solid $input-border;
-  color: $silver-chalice;
+    .form-control {
 
-  &:focus {
+        background-color: $silver-mercury;
+        border: 1px solid $input-border;
+        color: $silver-chalice;
 
-    background-color: $brand-info;
-    border-color: $brand-info;
-    outline: 0;
-  }
+        &:focus {
 
-  @include transition(border-color ease-in-out .15s, background-color ease-in-out .15s, color ease-in-out .15s);
-  @include placeholder;
+            background-color: $brand-info;
+            border-color: $brand-info;
+            color: $white;
+            outline: 0;
+        }
+
+        @include transition(border-color ease-in-out .15s, background-color ease-in-out .15s, color ease-in-out .15s);
+        @include placeholder;
+    }
+
+    // Errors / success
+    &.has-error,
+    &.has-success {
+
+        position: relative;
+
+        &::after {
+
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+            content: '';
+            height: 38px;
+            position: absolute;
+            right: 15px;
+            top:0;
+            width: 38px;
+        }
+    }
+
+    &.has-success {
+
+        &::before {
+
+            background-color: $brand-success;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            content: '';
+            height: 38px;
+            position: absolute;
+            right: 15px;
+            top:0;
+            width: 38px;
+        }
+
+        &::after {
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhbHF1ZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojRkZGRkZGO308L3N0eWxlPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MzIsNjRMMTkyLDMwNEw4MCwxOTJMMCwyNzJsMTkyLDE5MmwzMjAtMzIwTDQzMiw2NHoiLz48L3N2Zz4=);
+
+        }
+    }
+
+
+    &.has-error {
+
+        &::after {
+            background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiNGRkZGRkY7fTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTQ3OS44LDEzMUwzNzYsMjcuMmwtMTIwLDEyMGwtMTIwLTEyMEwzMi4yLDEzMWwxMjAsMTIwbC0xMjAsMTIwTDEzNiw0NzQuOGwxMjAtMTIwbDEyMCwxMjBMNDc5LjgsMzcxbC0xMjAtMTIwTDQ3OS44LDEzMXoiLz48L3N2Zz4=);
+        }
+
+        .form-control {
+            background-color: $brand-danger;
+            border-color: $white;
+            color: $white;
+            @include placeholder($white);
+        }
+
+        .help-block {
+            color: $brand-danger;
+            display: block;
+            font-size: $font-size-normal;
+            font-weight: 300;
+            margin-top: 5px;
+        }
+
+        .errors {
+            padding-left: 20px;
+        }
+    }
 }
+

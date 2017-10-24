@@ -36,6 +36,17 @@
     }
   }
 
+  .btn-info {
+        border-color: $input-border-check;
+        color: $text-color;
+
+        &:hover,
+        &.active {
+          border-color: $brand-info;
+          color: $white;
+    }
+  }
+
   .submit-dad {
 
     .text {
