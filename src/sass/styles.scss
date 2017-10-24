@@ -1,4 +1,16 @@
-@import './variables';
-@import './mixins';
+@import 'bytel-variables';
+@import 'bytel-mixins';
 @import './_bytel-bs-overwrite.scss';
 
+.showcase-code {
+
+    background: $silver-mercury;
+    color: $brand-primary;
+    font-family: Courier New, Arial;
+    font-size: 14px;
+    padding: 3px;
+}
+
+.jumbotron {
+    background-color: $silver-mercury;
+}
