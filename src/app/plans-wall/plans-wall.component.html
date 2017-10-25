@@ -12,3 +12,575 @@
     <li>Développement d'une directive permettant d'intégrer des SVG (btl-svg) <span class="badge badge-secondary">DEV</span></li>
   </ul>
 </div>
+
+<div class="plans-page" ng-controller="PlansWallCtrl" ng-init="initialize()" ng-cloak>
+
+    <!-- Sticky click2call -->
+    <!-- <?php if($category->getCategoryCode() == 'plan_premium'): ?> -->
+        <div click-to-call hide-on-scroll></div>
+    <!-- <?php endif ?> -->
+    <!-- <?php if($category->getCategoryCode() == 'plan_pro_premium'): ?> -->
+        <div click-to-call hide-on-scroll data-client="pro"></div>
+    <!-- <?php endif ?> -->
+
+    <!-- <div class="plans-list" <?php echo (true == $this->getIsRenewal()) ? 'ng-controller="SlidesRenewalCtrl"':''; ?> > -->
+    <div class="plans-list">
+
+        <div class="attributes-column column-item visible-lg">
+
+            <div class="content-wrap">
+
+                <div class="content-header" ng-class="{'with-phone' : Cart.hasPhone()}">
+
+                    <div class="flx-grid-container flx-col-xs-12 price-with-device visible-lg" ng-show="Cart.hasPhone()">
+
+                        <div class="price-offer-phone flx-col-lg-12" ng-cloak>
+
+                            <div class="phone-features flx-col-lg-8">
+                                <p class="mobile-infos">
+                                    {{::Cart.getPhone().source.manufacturer}} <strong>{{::Cart.getPhone().source.name}}</strong>,<br />
+                                    {{::Cart.getPhone().source.color}}, {{::Cart.getPhone().source.capacity}}
+                                    <span class="eco-tax">Eco-participation {{::Cart.getPhone().source.deee_amount | number:2}}€</span>
+                                </p>
+                            </div>
+
+                            <div class="mobile-info-img flx-col-lg-4">
+                                <img class="product-img afk-lazyload fade-effect" data-srcset="{{''+Cart.getPhone().source.image}}" alt="{{::Cart.getPhone().source.name}}" />
+                                <span class="das">DAS {{::Cart.getPhone().source.sar | number:3}}W/Kg</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="content-features">
+
+                    <div class="flx-col-xs-12 content-cell">
+                        <div class="cell-wrap">
+                            <p class="title-cell">Engagement</p>
+                        </div>
+                    </div>
+
+                    <div class="flx-col-xs-12 content-cell">
+                        <div class="cell-wrap">
+                            <p class="title-cell">Appels/SMS/MMS illimités<br />France Europe et DOM</p>
+                        </div>
+                    </div>
+
+                    <div class="flx-col-xs-12 content-cell">
+                        <div class="cell-wrap">
+                            <p class="title-cell">Appels illimités vers 120<br />destinations</p>
+                        </div>
+                    </div>
+
+                    <div class="flx-col-xs-12 content-cell">
+                        <div class="cell-wrap">
+                            <p class="title-cell">Internet</p>
+                        </div>
+                    </div>
+
+                    <div class="flx-col-xs-12 content-cell">
+                        <div class="cell-wrap">
+                            <p class="title-cell">Bouquet Presse</p>
+                        </div>
+                    </div>
+
+                    <div class="flx-col-xs-12 content-cell">
+
+                        <div class="cell-wrap cell-bonus">
+
+                            <p class="text-bonus title-cell">1 Bonus au choix inclus</p>
+
+                            <div class="flx-grid-container bonus-wrap">
+
+                                        <span class="item">
+                                            <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-twice-datas" class="icon s-twice-datas"></btl-svg>
+                                        </span>
+
+                                <span class="item">
+                                            <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-data-weekend-unlimited" class="icon s-data-weekend-unlimited"></btl-svg>
+                                        </span>
+
+                                <span class="item">
+                                            <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-bonus-equipe" class="icon s-icon-bonus-equipe"></btl-svg>
+                                        </span>
+
+                                <span class="item">
+                                            <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-bonus-studioplus" class="icon s-icon-bonus-studioplus"></btl-svg>
+                                        </span>
+
+                                <span class="item">
+                                            <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-btv" class="icon s-btv"></btl-svg>
+                                        </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="flx-col-xs-12 content-cell">
+                        <div class="cell-wrap">
+                            <p class="title-cell">Deuxième SIM incluse</p>
+                        </div>
+                    </div>
+
+
+                </div><!--  END CELLS -->
+
+            </div>
+
+        </div>
+
+        <carousel-plans is-carousel-ready="plansList.length" js-load="true" class="carousel-plans" ng-class="{'three-blades' : plansList.length==3, 'multiple-blades' : plansList.length>=5}">
+
+            <!-- <div class="carousel-column column-item" id="column-<?php echo $this->getPosition(); ?>"> -->
+            <div class="carousel-column column-item"">
+
+                <!-- <div class="flx-grid-container content-wrap" ng-class="{'plan-special' : hasPromoPrice(<?php echo $_product->getId(); ?>)}"> -->
+                <div class="flx-grid-container content-wrap">
+
+                    <div class="special-text flx-col-xs-12">
+                        <div ng-if="hasPromoPrice(<?php echo $_product->getId(); ?>)">
+                            <!-- <span ng-show="!cart.isPomoCustomerOnly(<?php echo $_product->getId(); ?>)">Promotion</span> -->
+                            <span ng-show="!cart.isPomoCustomerOnly()">Promotion</span>
+                            <!-- <span ng-show="cart.isPomoCustomerOnly(<?php echo $_product->getId(); ?>)">Exclu client</span> -->
+                            <span ng-show="cart.isPomoCustomerOnly()">Exclu client</span>
+                        </div>
+                    </div>
+
+                    <div class="content-text flx-col-xs-12">
+
+                        <div class="content-header" ng-class="{'with-phone' : Cart.hasPhone() }">
+
+                            <div class="price-with-device flx-grid-container flx-col-xs-12" ng-show="Cart.hasPhone()" ng-cloak>
+
+                                <div class="phone-features flx-col-xs-12 hidden-lg">
+                                    <p class="mobile-infos">
+                                        <span class="mobile-text">
+                                            {{::Cart.getPhone().source.manufacturer}} <strong>{{::Cart.getPhone().source.name}}</strong>, {{::Cart.getPhone().source.color}}, {{::Cart.getPhone().source.capacity}}
+                                        </span>
+                                        <span class="eco-tax">Eco-participation {{::Cart.getPhone().source.deee_amount | number:2}}€</span>
+                                    </p>
+                                </div>
+
+                                <div class="price-offer-phone flx-col-xs-12">
+
+                                    <div class="mobile-info-img flx-col-xs-3 hidden-lg">
+                                        <img class="product-img afk-lazyload fade-effect" data-srcset="{{''+Cart.getPhone().source.image}}" alt="{{::Cart.getPhone().source.name}}" />
+                                        <span class="das">DAS {{::Cart.getPhone().source.sar | number:3}}W/Kg</span>
+
+                                    </div>
+                                    <!-- <?php if($_product->isPlanPremium()): ?> -->
+                                        <!-- <?php /* PREMIUM */ ?> -->
+                                        <!-- <?php /* CASH (NO EDP) */?> -->
+                                        <!-- <div ng-if="!obligations[<?php echo $_product->getId(); ?>].data.edp_price" class="prices-container flx-col-xs-9 flx-col-lg-12"> -->
+                                        <div ng-if="!obligations[].data.edp_price" class="prices-container flx-col-xs-9 flx-col-lg-12">
+                                            <!-- <?php /* WITH RSF */?> -->
+                                            <!-- <div ng-if="obligations[<?php echo $_product->getId(); ?>].data.rsf_amount"> -->
+                                            <div ng-if="obligations[].data.rsf_amount">
+
+                                                <div class="price-info">
+                                                    <!-- <pre>{{getPriceMinusOdrRsfAmount(obligations[<?php echo $_product->getId(); ?>].data.price, <?php echo $_product->getId(); ?>)}}</pre> -->
+
+                                                   <!--  <div ng-bind-html="{price: getPriceMinusOdrRsfAmount(obligations[<?php echo $_product->getId(); ?>].data.price, <?php echo $_product->getId(); ?>)} | customCurrencyFlx" class="clr-primary"></div> -->
+                                                    <div ng-bind-html="{price: getPriceMinusOdrRsfAmount(obligations[].data.price,)} | customCurrencyFlx" class="clr-primary"></div>
+
+                                                    <!-- <a class="link" ng-click="openOdrRsfModal(<?php echo $_product->getId(); ?>, obligations[<?php echo $_product->getId(); ?>].data.price, '<?php echo $_product->getName(); ?>' )" ng-if="hasOdrRsf(<?php echo $_product->getId(); ?>)">
+                                                        <i class="icon-item link-info">
+                                                            <btl-svg svg-file="tunnel-defs" svg-name="shape-icon-information" class="icon s-information"></btl-svg>
+                                                        </i>
+                                                    </a> -->
+                                                    <a class="link" ng-click="openOdrRsfModal(, obligations[].data.price, '' )" ng-if="hasOdrRsf()">
+                                                        <i class="icon-item link-info">
+                                                            <btl-svg svg-file="tunnel-defs" svg-name="shape-icon-information" class="icon s-information"></btl-svg>
+                                                        </i>
+                                                    </a>
+
+                                                </div>
+
+                                            </div>
+                                            <!-- <?php /* WITHOUT RSF */?> -->
+                                            <div ng-if="!obligations[<?php echo $_product->getId(); ?>].data.rsf_amount && obligations[<?php echo $_product->getId(); ?>].data.price">
+
+                                                <div class="price-info">
+                                                    <div ng-bind-html="{price: getPriceMinusOdrRsfAmount(obligations[<?php echo $_product->getId(); ?>].data.price, <?php echo $_product->getId(); ?>)} | customCurrencyFlx" class="clr-primary"></div>
+
+                                                    <a class="link" ng-click="openOdrRsfModal(<?php echo $_product->getId(); ?>, obligations[<?php echo $_product->getId(); ?>].data.price, '<?php echo $_product->getName(); ?>' )" ng-if="hasOdrRsf(<?php echo $_product->getId(); ?>)">
+                                                        <i class="icon-item link-info">
+                                                            <btl-svg svg-file="tunnel-defs" svg-name="shape-icon-information" class="icon s-information"></btl-svg>
+                                                        </i>
+                                                    </a>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <?php /* EDP */?>
+                                        <div ng-if="obligations[<?php echo $_product->getId(); ?>].data.edp_price" class="prices-container flx-col-xs-9 flx-col-lg-12">
+
+                                            <?php /* WITH RSF (edp_price - RSF > 0) */?>
+                                            <div ng-if="obligations[<?php echo $_product->getId(); ?>].data.edp_price - obligations[<?php echo $_product->getId(); ?>].data.rsf_amount > 0">
+
+                                                <div class="price-info">
+                                                    <div ng-bind-html="{price: getPriceMinusOdrRsfAmount(obligations[<?php echo $_product->getId(); ?>].data.edp_price, <?php echo $_product->getId(); ?>)} | customCurrencyFlx" class="clr-primary"></div>
+
+                                                    <a class="link" ng-click="openOdrRsfModal(<?php echo $_product->getId(); ?>, obligations[<?php echo $_product->getId(); ?>].data.edp_price, '<?php echo $_product->getName(); ?>', true )" ng-if="hasOdrRsf(<?php echo $_product->getId(); ?>)">
+                                                        <i class="icon-item link-info">
+                                                            <btl-svg svg-file="tunnel-defs" svg-name="shape-icon-information" class="icon s-information"></btl-svg>
+                                                        </i>
+                                                    </a>
+
+                                                </div>
+
+                                                <div class="promo-duration">
+                                                    <div class="duration">
+                                                        <span class="price-prospect">+{{cart.getPhone().source.funding.amount | number:0}}€</span>/mois pendant {{cart.getPhone().source.funding.duration | number:0}} mois
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <?php /* WITH RSF (edp_price - RSF > 0) */?>
+                                            <div ng-if="obligations[<?php echo $_product->getId(); ?>].data.edp_price - obligations[<?php echo $_product->getId(); ?>].data.rsf_amount <= 0 && hasOdrRsf(<?php echo $_product->getId(); ?>)">
+
+                                                <div class="price-info">
+                                                    <div ng-bind-html="{price: getPriceMinusOdrRsfAmount(obligations[<?php echo $_product->getId(); ?>].data.price, <?php echo $_product->getId(); ?>)} | customCurrencyFlx" class="clr-primary"></div>
+
+                                                    <a class="link" ng-click="openOdrRsfModal(<?php echo $_product->getId(); ?>, obligations[<?php echo $_product->getId(); ?>].data.price, '<?php echo $_product->getName(); ?>' )">
+                                                        <i class="icon-item link-info">
+                                                            <btl-svg svg-file="tunnel-defs" svg-name="shape-icon-information" class="icon s-information"></btl-svg>
+                                                        </i>
+                                                    </a>
+
+                                                </div>
+
+                                                <div class="promo-duration">
+                                                    <div class="duration">
+                                                        <span class="price-prospect">+{{Cart.getPhone().source.funding.amount | number:0}}€</span>/mois pendant {{Cart.getPhone().source.funding.duration | number:0}} mois
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    <?php else: ?>
+                                        <?php /* NO PREMIUM */ ?>
+                                        <div class="prices-container flx-col-xs-9 flx-col-lg-12">
+
+                                            <div class="price-info">
+                                                <div ng-bind-html="{price: getPriceMinusOdrRsfAmount(Cart.getPhone().source.special_price, <?php echo $_product->getId(); ?>), promoPrice:Cart.getPhone().source.price} | customCurrencyFlx" class="clr-primary" ng-if="Cart.getPhone().source.special_price"></div>
+                                                <div ng-bind-html="{price: getPriceMinusOdrRsfAmount(Cart.getPhone().source.price, <?php echo $_product->getId(); ?>)} | customCurrencyFlx" class="clr-primary" ng-if="!Cart.getPhone().source.special_price"></div>
+
+                                                <a class="link" ng-click="openOdrRsfModal(<?php echo $_product->getId(); ?>, (Cart.getPhone().source.special_price || Cart.getPhone().source.price), '<?php echo $_product->getName(); ?>' )" ng-if="hasOdrRsf(<?php echo $_product->getId(); ?>)">
+                                                    <i class="icon-item link-info">
+                                                        <btl-svg svg-file="tunnel-defs" svg-name="shape-icon-information" class="icon s-information"></btl-svg>
+                                                    </i>
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                    <?php endif; ?>
+
+                                </div>
+                            </div>
+
+                            <div class="flx-col-xs-12 plan-data" ng-class="{'sensation' : <?php echo ($_product->isPlanPremium()) ? 'true':'false' ?>}">
+                                <div class="plan-data-title">
+                                    <div class="data">
+                                        <i class="icon-item">
+                                            <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-plan-data-gradients-bg" class="icon icon-data-gradients"></btl-svg>
+                                        </i>
+                                        <?php echo $_product->getDataEnvelope(); ?>
+                                        <?php if($_product->getOperationLabel()): ?>
+                                            <span class="legend"><?php echo $_product->getOperationLabel(); ?></span>
+                                        <?php endif; ?>
+                                    </div>
+                                    <?php if($_product->isPlanPremium()): ?>
+                                        <p class="secondary-title">Forfait Sensation</p>
+                                    <?php else :?>
+                                        <p class="secondary-title">Forfait B&YOU</p>
+                                    <?php endif;?>
+
+                                </div>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="flx-col-xs-12 cell-price">
+
+                                <div class="cell-price-top">
+
+                                    <div class="offer-date" ng-show="prolongation">
+                                        <span class="text">PROLONGATION</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="prices cell-price-middle clr-primary" ng-bind-html="getPrices(<?php echo $_product->getId(); ?>) | customCurrencyFlx: 'true' : false : 'right'" ></div>
+
+                                <div class="cell-price-bottom">
+
+                                    <div class="explanation" ng-show="hasPromoPrice(<?php echo $_product->getId(); ?>)" ng-bind-html="getDescriptionPromo(<?php echo $_product->getId() ?>)"></div>
+
+                                    <?php /* NE PAS AFFICHER VERSION BLOQUEE SI PROMO */ ?>
+                                    <div class="plan-blocked checkbox-toggle" ng-show="<?php echo ($_product->getLocked() && $_product->isPlanSowo()) ? 'true':'false'?> && !hasPromoPrice(<?php echo $_product->getId(); ?>)" ng-init="blocked<?php echo $_product->getId(); ?> = false;">
+                                        <div class="toggle-button">
+                                            <span ng-click="blocked<?php echo $_product->getId(); ?> = !blocked<?php echo $_product->getId(); ?>">Version bloquée</span>
+                                            <input id="blocked<?php echo $_product->getId(); ?>" type="checkbox" ng-model="blocked<?php echo $_product->getId();?>">
+                                            <label for="blocked<?php echo $_product->getId(); ?>">
+                                                <div></div>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="content-features">
+
+                            <a class="select-features" href="<?php echo $_product->getProductUrl(); ?>">
+
+                                <div class="flx-col-xs-12 content-cell">
+
+                                    <div class="cell-wrap">
+
+                                        <div class="cell-text">
+
+                                            <i class="icon-item available-attribute hidden-lg">
+                                                <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-check-thin" class="icon s-check-thin"></btl-svg>
+                                            </i>
+                                            <?php if($_product->isPlanPremium()) : ?>
+                                                <div class="hidden-lg">
+                                                    <span>Engagement 24 mois</span>
+                                                </div>
+
+                                                <div class="visible-lg">
+                                                    <span>24 mois</span>
+                                                </div>
+                                            <?php else : ?>
+                                                <div>Sans engagement</div>
+                                            <?php endif; ?>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="flx-col-xs-12 content-cell">
+
+                                    <div class="cell-wrap">
+
+                                        <div class="cell-text">
+
+                                            <i class="icon-item available-attribute">
+                                                <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-check-thin" class="icon s-check-thin"></btl-svg>
+                                            </i>
+
+                                            <div class="hidden-lg">
+                                                <?php echo $_product->getSmsMms()?>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="flx-col-xs-12 content-cell" ng-class="{'no-feature' : <?php echo $_product->getShowInternationalCall() == 1 ? 'false':'true' ?>}">
+
+                                    <div class="cell-wrap">
+
+                                        <div class="cell-text">
+                                            <?php if($_product->getShowInternationalCall()) : ?>
+                                                <i class="icon-item available-attribute">
+                                                    <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-check-thin" class="icon s-check-thin"></btl-svg>
+                                                </i>
+                                            <?php endif; ?>
+
+                                            <div class="hidden-lg">
+                                                <?php echo $_product->getInternationalCall(); ?>
+                                            </div>
+
+                                            <?php if(!$_product->getShowInternationalCall()) : ?>
+                                                <div class="not-available visible-lg">
+                                                    -
+                                                </div>
+                                            <?php endif; ?>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="flx-col-xs-12 content-cell">
+
+                                    <div class="cell-wrap">
+
+                                        <div class="cell-text">
+
+                                            <i class="icon-item available-attribute hidden-lg">
+                                                <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-check-thin" class="icon s-check-thin"></btl-svg>
+                                            </i>
+
+                                            <div>
+                                                <?php echo $_product->getUnlimitedCall(); ?>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="flx-col-xs-12 content-cell" ng-class="{'no-feature' : <?php echo $_product->getShowPress() == 1 ? 'false':'true' ?>}">
+
+                                    <div class="cell-wrap">
+
+                                        <div class="cell-text">
+
+                                            <?php if($_product->getShowPress() == 1) : ?>
+
+                                                <i class="icon-item available-attribute">
+                                                    <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-check-thin" class="icon s-check-thin"></btl-svg>
+                                                </i>
+                                            <?php endif; ?>
+
+                                            <div class="hidden-lg">
+                                                <?php echo $_product->getPress(); ?>
+                                            </div>
+                                            <?php if(!$_product->getShowPress()) :?>
+                                                <div class="not-available visible-lg">
+                                                    -
+                                                </div>
+                                            <?php endif; ?>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="flx-col-xs-12 content-cell" ng-class="{'no-feature' : <?php echo $_product->getBonus() ? 'false':'true' ?>}">
+
+                                    <div class="cell-wrap cell-bonus">
+
+                                        <div class="cell-text">
+                                            <?php if($_product->getBonus()) : ?>
+                                                <i class="icon-item available-attribute">
+                                                    <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-check-thin" class="icon s-check-thin"></btl-svg>
+                                                </i>
+                                            <?php endif; ?>
+
+                                            <div class="hidden-lg">
+
+                                                <div class="text-bonus">1 <strong>Bonus</strong> au choix inclus :</div>
+
+                                                <div class="flx-grid-container bonus-wrap">
+
+                                                    <span class="item">
+                                                        <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-twice-datas" class="icon s-twice-datas"></btl-svg>
+                                                    </span>
+
+                                                    <span class="item">
+                                                        <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-data-weekend-unlimited" class="icon s-data-weekend-unlimited"></btl-svg>
+                                                    </span>
+
+                                                    <span class="item">
+                                                        <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-bonus-equipe" class="icon s-icon-bonus-equipe"></btl-svg>
+                                                    </span>
+
+                                                    <span class="item">
+                                                        <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-bonus-studioplus" class="icon s-icon-bonus-studioplus"></btl-svg>
+                                                    </span>
+
+                                                    <span class="item">
+                                                        <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-btv" class="icon s-btv"></btl-svg>
+                                                    </span>
+
+                                                </div>
+
+                                            </div>
+
+                                            <?php if(!$_product->getBonus()) :?>
+                                                <div class="not-available visible-lg">
+                                                    -
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="flx-col-xs-12 content-cell" ng-class="{'no-feature' : <?php echo $_product->getDoubleSim() ? 'false':'true'; ?>}">
+
+                                    <div class="cell-wrap">
+
+                                        <div class="cell-text">
+
+                                            <?php if($_product->getDoubleSim()) : ?>
+                                                <i class="icon-item available-attribute">
+                                                    <btl-svg svg-file="plans-page-defs" svg-name="shape-icon-check-thin" class="icon s-check-thin"></btl-svg>
+                                                </i>
+                                            <?php endif; ?>
+
+                                            <div class="hidden-lg">
+                                                Deuxième SIM incluse
+                                            </div>
+                                            <?php if(!$_product->getDoubleSim()) : ?>
+                                                <div class="not-available visible-lg">
+                                                    -
+                                                </div>
+                                            <?php endif; ?>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="flx-col-xs-12 content-actions" ng-class="{'sensation' : <?php echo $_product->isPlanPremium() ? 'true':'false'; ?> && !Cart.hasPhone()}">
+
+                        <?php echo $this->getAddProductButton($_product); ?>
+
+                        <a class="btn btn-default" href="<?php echo $_product->getProductUrl(); ?>" role="button">Voir le détail du forfait</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </carousel-plans>
+
+    </div>
+
+    <!-- CMS BLOCKS -->
+    <!-- <?php if($isPremium): ?> -->
+    <div class="col-xs-12">
+        <!-- <?php echo $this->getChildHtml('bonus_sensation'); ?> -->
+    </div>
+    <!-- <?php endif; ?> -->
+
+    <div class="col-xs-12">
+        <!-- <?php echo $this->getChildHtml('footer_plan'); ?> -->
+    </div>
+
+    <!-- Reinsurance -->
+    <div class="col-xs-12">
+        <!-- <?php echo $this->getChildHtml('reinsurance') ?> -->
+    </div>
+
+</div>
