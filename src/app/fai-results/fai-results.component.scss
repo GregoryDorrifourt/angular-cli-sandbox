@@ -1,58 +1,21 @@
-@import '~sass/variables';
+@import '~sass/bytel-variables';
 
 
 .fai-results {
-
-  color: $navbar-default-link-active-color;
-  font-size: 14px;
+  background-color: $white;
   width: 1200px;
 
-
-  /*.box-title {
-
-      font-size: 18px;
-      font-weight: 400;
-      margin: 0;
-  }*/
-
-  // nav
-  .fai-nav-option {
-      background-color: $brand-secondary;
-      color: $white;
-      //padding-bottom: 10px;
-      //padding-top: 10px;
+  .nav-option {
+    background-color: $brand-secondary;
+    border: 2px solid $brand-secondary;
+    color: $white;
   }
 
-  // collapse
-  .fai-collapse {
+  .content-border {
+    border: 2px solid $btn-default-border;
+  }
 
-      background-color: $btn-default-border;
-      border: 2px solid $btn-default-border;
-
-      .title-item {
-        padding-bottom: 5px;
-        padding-top: 5px;
-      }
-
-      .item {
-
-          padding-bottom: 5px;
-          padding-top: 5px;
-
-          &:nth-child(odd) {
-            background-color: $white;
-          }
-
-          &:nth-child(even) {
-            background-color: $table-bg-hover;
-          }
-
-          .item-result {
-
-            color: $navbar-default-link-active-color;
-            display: block;
-            text-decoration: none;
-          }
-      }
+  .title-item {
+    background-color: $btn-default-border;
   }
 }
