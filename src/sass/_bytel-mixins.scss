@@ -1,3 +1,4 @@
+///////////////////
 // Placeholder text
 @mixin placeholder($color: $silver-chalice) {
     &::-moz-placeholder           { color: $color;   // Firefox
@@ -13,24 +14,30 @@
     }
 }
 
+//////////////////
+// Buttons
 @mixin button-variant($color, $background, $border) {
 
     background-color: $background;
     border-color: $border;
     color: $color;
+    cursor: pointer;
 
-    &.btn-trs {
-        background-color: transparent;
+    &.reversed {
+
+        background-color: $color;
+        border-color: $border;
+        color: $background;
+
+        &.transparent {
+            background-color: transparent;
+        }
     }
     &.contrast {
+
         background-color: transparent;
         border-color: $color;
         color: $color;
-    }
-    &.reversed {
-        background-color: $white;
-        border-color: $border;
-        color: $background;
     }
 
     &:hover,
@@ -38,41 +45,57 @@
     &:active,
     &.active,
     .open > &.dropdown-toggle {
+
         color: $background;
         background-color: $color;
+        border-color:$border;
+
         &.normal {
+
             color: $color;
             background-color: darken($background, 5%);
+            border-color:$color;
         }
+
+        &.transparent {
+
+            background-color: transparent;
+            border-color: $border;
+            color: $background;
+        }
+
         &.reversed {
+
             background-color: $background;
             border-color: $border;
-            color: $white;
-        }
-        &.btn-primary {
-            color: $brand-primary;
-            background-color: $white;
-            border-color: $brand-primary;
-        }
-        &.btn-secondary {
-            color: $white;
-            background-color: $brand-secondary;
-            border-color: $brand-secondary;
-        }
-        &.no-hover {
             color: $color;
+        }
+
+        &.contrast {
+
+            background-color: $color;
+            border-color: $color;
+            color: $background;
+        }
+
+        &.no-hover {
+
             background-color: $background;
             border-color: $border;
+            color: $color;
         }
+
         &.btn-outline {
             color: $silver-chalice;
         }
     }
+
     &:active,
     &.active,
     .open > &.dropdown-toggle {
         background-image: none;
     }
+
     &.disabled,
     &[disabled],
     fieldset[disabled] & {
@@ -90,6 +113,16 @@
         color: $background;
         background-color: $color;
     }
+}
+
+
+// Base 64 icons for forms
+@mixin bytel-success-icon(){
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhbHF1ZV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDojRkZGRkZGO308L3N0eWxlPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MzIsNjRMMTkyLDMwNEw4MCwxOTJMMCwyNzJsMTkyLDE5MmwzMjAtMzIwTDQzMiw2NHoiLz48L3N2Zz4=);
+}
+
+@mixin bytel-error-icon(){
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+LnN0MHtmaWxsOiNGRkZGRkY7fTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTQ3OS44LDEzMUwzNzYsMjcuMmwtMTIwLDEyMGwtMTIwLTEyMEwzMi4yLDEzMWwxMjAsMTIwbC0xMjAsMTIwTDEzNiw0NzQuOGwxMjAtMTIwbDEyMCwxMjBMNDc5LjgsMzcxbC0xMjAtMTIwTDQ3OS44LDEzMXoiLz48L3N2Zz4=);
 }
 
 

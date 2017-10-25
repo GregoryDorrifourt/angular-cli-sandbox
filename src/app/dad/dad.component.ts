@@ -98,7 +98,6 @@ export class DadComponent implements OnInit {
      * @param value
      */
     rbChange(input, value){
-        console.log(value);
         this.formData.value[input] = value;
     }
 
