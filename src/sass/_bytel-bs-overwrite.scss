@@ -1,14 +1,149 @@
-@import "./variables";
+@import "bytel-variables";
+@import "bytel-mixins";
 
-.btn-primary, .badge-primary {
 
-  background-color: $brand-primary;
-  border-color: $brand-primary;
+pre{
+
+    background-color: $silver-mercury;
+    border: $silver-nobel 1px solid;
+    border-radius: 5px;
+    color: $silver-chalice;
+    font-size: $font-size-normal;
+    padding: 10px 15px;
 }
 
-.btn-secondary, .badge-secondary {
+/////////////////
+// Buttons
 
-  background-color: $brand-secondary;
-  border-color: $brand-secondary;
+.btn {
+    @include button-variant($white, $silver-chalice, $silver-chalice);
+}
+.btn-primary {
+    @include button-variant($white, $brand-primary, $brand-primary);
+}
+.btn-secondary {
+    @include button-variant($white, $brand-secondary, $brand-secondary);
+}
+.btn-info {
+    @include button-variant($white, $brand-info, $brand-info);
+}
+.btn-success {
+    @include button-variant($white, $brand-success, $brand-success);
+}
+.btn-danger {
+    @include button-variant($white, $brand-danger, $brand-danger);
+}
+
+
+/////////////////
+// Bagdes
+.badge-primary{
+    background-color: $brand-primary;
+}
+.badge-secondary{
+    background-color: $brand-secondary;
+}
+.badge-info{
+    background-color: $brand-info;
+}
+.badge-success{
+    background-color: $brand-success;
+}
+.badge-danger{
+    background-color: $brand-danger;
+}
+
+
+
+//////////////////
+// Form
+.form-group {
+
+    .form-control {
+
+        background-color: $silver-mercury;
+        border: 1px solid $input-border;
+        color: $silver-chalice;
+        padding: .5rem 3rem .5rem .75rem;
+
+        &:focus {
+
+            background-color: $brand-info;
+            border-color: $brand-info;
+            color: $white;
+            outline: 0;
+        }
+
+        @include transition(border-color ease-in-out .15s, background-color ease-in-out .15s, color ease-in-out .15s);
+        @include placeholder;
+    }
+
+    // Errors / success
+    &.has-error,
+    &.has-success {
+
+        position: relative;
+
+        &::after {
+
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: 20px;
+            content: '';
+            height: 38px;
+            position: absolute;
+            right: 15px;
+            top:0;
+            width: 38px;
+        }
+    }
+
+    &.has-success {
+
+        &::before {
+
+            background-color: $brand-success;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            content: '';
+            height: 38px;
+            position: absolute;
+            right: 15px;
+            top:0;
+            width: 38px;
+        }
+
+        &::after {
+            @include bytel-success-icon;
+        }
+    }
+
+
+    &.has-error {
+
+        &::after {
+            @include bytel-error-icon;
+        }
+
+        .form-control {
+
+            background-color: $brand-danger;
+            border-color: $white;
+            color: $white;
+            @include placeholder($white);
+        }
+
+        .help-block {
+            color: $brand-danger;
+            display: block;
+            font-size: $font-size-normal;
+            font-weight: 300;
+            margin-top: 5px;
+        }
+
+        .errors {
+            padding-left: 20px;
+        }
+    }
 }
 

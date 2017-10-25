@@ -2,28 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { DadModule } from './dad/dad.module';
+import { FaiResultsModule } from "./fai-results/fai-results.module";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { DadComponent } from './dad/dad.component';
 import { NavbarComponent } from './interface/navbar/navbar.component';
 import { FooterComponent } from './interface/footer/footer.component';
 import { HeaderComponent } from './interface/header/header.component';
 import { PlansWallComponent } from './plans-wall/plans-wall.component';
+import { FaiResultsComponent } from './fai-results/fai-results.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        DadComponent,
         HomeComponent,
         NavbarComponent,
         FooterComponent,
         HeaderComponent,
-        PlansWallComponent
+        PlansWallComponent,
+        FaiResultsComponent
     ],
     imports: [
         AppRoutingModule,
-        BrowserModule
+        BrowserModule,
+        DadModule,
+        FaiResultsModule
     ],
     providers: [],
     bootstrap: [AppComponent]

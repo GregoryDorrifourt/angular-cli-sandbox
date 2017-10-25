@@ -1,0 +1,30 @@
+@import '~sass/bytel-variables';
+
+
+.fai-results {
+    background-color: $white;
+    width: 1200px;
+
+
+  .item-striped {
+
+      &::nth-child(even) {
+        
+          background-color:red;
+      }
+  }
+
+  .nav-option {
+      background-color: $brand-secondary;
+      border: 2px solid $brand-secondary;
+      color: $white;
+  }
+
+  .content-border {
+      border: 2px solid $btn-default-border;
+  }
+
+  .title-item {
+      background-color: $btn-default-border;
+  }
+}
