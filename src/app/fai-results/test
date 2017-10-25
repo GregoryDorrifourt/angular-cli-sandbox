@@ -1,0 +1,179 @@
+<div class="container-fluid fai-results">
+
+    <div class="row box-header">
+        <div class="col-12">
+            <h2 class="box-title">Voici les offres Bbox que vous pouvez proposer à ce client</h2>
+        </div>
+    </div>
+
+
+    <div class="row box-content">
+
+        <div class="col-12 fai-nav-option">
+            <div class="row">
+                <span class="col-2">1</span>
+                <span class="col-1">2</span>
+                <span class="col-2">3</span>
+                <span class="col-1">4</span>
+                <span class="col-1">5</span>
+                <span class="col-2">6</span>
+                <span class="col-1">7</span>
+                <span class="col-1">8</span>
+                <span class="col-1">9</span>
+            </div>
+        </div>
+
+        <div class="col-12 fai-collapse" data-children=".item">
+
+            <div class="row">
+
+                <!-- Title collapse -->
+                <div class="col-12 title-item">
+                    <p class="mb-0">FFTH TV + Téléphone fixe + Internet</p>
+                </div>
+
+                <div class="col-12 item">
+
+                    <a class="item-result" data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion1" aria-expanded="true" aria-controls="exampleAccordion1">
+                        <span class="row">
+                            <span class="col-2">1</span>
+                            <span class="col-1">2</span>
+                            <span class="col-2">3</span>
+                            <span class="col-1">4</span>
+                            <span class="col-1">5</span>
+                            <span class="col-2">6</span>
+                            <span class="col-1">7</span>
+                            <span class="col-1">8</span>
+                            <span class="col-1">9</span>
+                        </span>
+                    </a>
+
+
+                    <div id="exampleAccordion1" class="collapse show" role="tabpanel">
+                        <p class="mb-3">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium lorem non vestibulum scelerisque. Proin a vestibulum sem, eget tristique massa. Aliquam rhoncus nibh quis ornare.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 item">
+                    <a class="item-result" data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion4" aria-expanded="true" aria-controls="exampleAccordion4">
+                        Bbox Miami FTTH 3P
+                    </a>
+                    <div id="exampleAccordion4" class="collapse show" role="tabpanel">
+                        <p class="mb-3">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pretium lorem non vestibulum scelerisque. Proin a vestibulum sem, eget tristique massa. Aliquam lacinia rhoncus nibh quis ornare.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Title collapse -->
+                <div class="col-12 title-item">
+                    <p class="mb-0">VDSL TV + Téléphone fixe + Internet</p>
+                </div>
+
+
+                <div class="col-12 item">
+                    <a class="item-result" data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion2" aria-expanded="false" aria-controls="exampleAccordion2">
+                        Bbox Miami+ 3P
+                    </a>
+                    <div id="exampleAccordion2" class="collapse" role="tabpanel">
+                        <p class="mb-3">
+                            Donec at ipsum dignissim, rutrum turpis scelerisque, tristique lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus nec dui turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 item">
+                    <a class="item-result" data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion5" aria-expanded="false" aria-controls="exampleAccordion5">
+                        Bbox Miami 3P
+                    </a>
+                    <div id="exampleAccordion5" class="collapse" role="tabpanel">
+                        <p class="mb-3">
+                            Donec at ipsum dignissim, rutrum turpis scelerisque, tristique lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus nec dui turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-12 item">
+                    <a class="item-result" data-toggle="collapse" data-parent="#exampleAccordion" href="#exampleAccordion6" aria-expanded="false" aria-controls="exampleAccordion6">
+                        Bbox Standard 3P
+                    </a>
+                    <div id="exampleAccordion6" class="collapse" role="tabpanel">
+                        <p class="mb-3">
+                            Donec at ipsum dignissim, rutrum turpis scelerisque, tristique lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus nec dui turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--
+<table class="table" id="exampleAccordion" data-children=".item">
+    <thead>
+        <tr>
+            <th>Nom de l'offre / technologie</th>
+            <th>Prix</th>
+            <th>Location BOX</th>
+            <th>FMS</th>
+            <th>Engagement</th>
+            <th>Remise</th>
+            <th>Prix remisé</th>
+            <th>ID</th>
+            <th>Détails</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr data-toggle="collapse" data-target=".order1">
+            <td>Bbox Miami+ FTTH 3P</td>
+            <td>37,99 €</td>
+            <td>3,00 €</td>
+            <td>0</td>
+            <td>12 mois</td>
+            <td>13€/mois pdt 12M</td>
+            <td>24,99 €</td>
+            <td>72153918</td>
+            <td>&gt;</td>
+        </tr>
+        <tr class="collapse order1">
+            <td>1</td>
+            <td></td>
+            <td>Shirt</td>
+            <td>$12.27</td>
+        </tr>
+        <tr class="collapse order1">
+            <td>1</td>
+            <td></td>
+            <td>Shoes</td>
+            <td>$62.27</td>
+        </tr>
+
+        <tr data-toggle="collapse" data-target=".order2">
+            <td>&gt;</td>
+            <td>1002</td>
+            <td>9/27/2016</td>
+            <td>$92.15</td>
+        </tr>
+        <tr class="collapse order2">
+            <td>2</td>
+            <td></td>
+            <td>Item</td>
+            <td>$12.27</td>
+        </tr>
+        <tr class="collapse order2">
+            <td>2</td>
+            <td></td>
+            <td>Item</td>
+            <td>$62.27</td>
+        </tr>
+    </tbody>
+</table>-->

@@ -2,6 +2,16 @@
 @import 'bytel-mixins';
 @import './_bytel-bs-overwrite.scss';
 
+// box white
+.box-header,
+.box-content {
+    background-color: $white;
+}
+
+.box-header {
+  margin-bottom: 2px;
+}
+
 .showcase-code {
 
     background: $silver-mercury;
