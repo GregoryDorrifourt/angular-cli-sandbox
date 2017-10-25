@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { DadModule } from './dad/dad.module';
+import { FaiResultsModule } from "./fai-results/fai-results.module";
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -25,7 +26,8 @@ import { FaiResultsComponent } from './fai-results/fai-results.component';
     imports: [
         AppRoutingModule,
         BrowserModule,
-        DadModule
+        DadModule,
+        FaiResultsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
